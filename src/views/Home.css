@@ -1,0 +1,26 @@
+.panes{
+    display:inline-block;
+    flex-direction:row;
+}
+.w-10{
+    width:50px;
+}
+.dark-blue{
+    background-color: blue;
+}
+.white-f{
+    color :white;
+}
+.card{
+    background-color: rgb(45, 45, 255);
+}
+.panes{
+    display:flex;
+    flex-direction: row;
+}
+.right-pane{
+    flex:1;
+}
+.left-pane{
+    flex:1;
+}
