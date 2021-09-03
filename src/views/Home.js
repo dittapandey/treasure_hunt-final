@@ -1,58 +1,68 @@
+import { useState } from "react";
+import { useHistory } from "react-router";
+import axios from "axios";
 import Navbar from "../components/Navbar"
+import './Home.css';
 
-const Home = () => {
+const Home = ({setLoginUser}) => {
+    const [rollNumber, setRollNumber] = useState("");
+    const [password, setPassword] = useState("");
+    const history = useHistory();
+    const handleSubmit = async (e)=>{
+      e.preventDefault();
+      const data = {rollNumber, password};
+      await axios.post(`/users/${rollNumber}`, data)
+      .then(res => {
+        alert(res.data.message);
+        setLoginUser(res.data.user);
+      })
+    }
     return ( 
-        <div className="homePage">
+        <div className="col-24">
             <Navbar/>
             <div class="container" v-else>
-    <div class="row">
-      <div class="col-12 col-md-6 mt-4">
-        <h4 class="mt-3"><b>Details</b></h4>
-        <form class="mt-4" >     
-        {/* @submit.prevent="startGame" */}
-          <div class="form-group">
-            <label for="exampleInputFullName">Full Name</label>
-            <input
-              type="fullName"
-              class="form-control"
-              id="exampleInputFullName"
-              placeholder="Full Name"
-            //   :value="displayName"
-            //   required
-            //   :v-model="displayName"
-            //   @input="displayName = $event.target.value"
-            //   :disabled="getFullName"
-            />
-            {/* {{ fullName }} */}
-          </div>
-          <div class="form-group mt-4">
-            <label for="exampleInputEmail">Email Address</label>
-            <input
-              type="email"
-              class="form-control"
-              id="exampleInputEmail"
-              disabled
-            //   :value="email"
-            //   :v-model="email"
-            />
-          </div>
-          <button
-            type="submit"
-            // disabled="btnDisabled"
-            class="btn btn-success mt-4"
-          >
-            {/* <span
-              v-if="spinning"
-              class="spinner-border spinner-border-sm"
-              role="status"
-              aria-hidden="true"
-            ></span>
-
-            <span v-if="spinning" class="sr-only">&nbsp; Loading...</span> */}
-            <span v-else class="sr-only">Submit & Start Game</span>
-          </button>
-        </form>
-      </div>
+              <div class="row">
+                <div class="col-12 col-md-6 mt-4">
+                  <h4 class="mt-3"><b>Details</b></h4>
+                    <form class="mt-4" onSubmit = {handleSubmit}>     
+                      {/* @submit.prevent="startGame" */}
+                      <div class="form-group">
+                        <label for="exampleInputFullName">Full Name</label>
+                        <input
+                          type="fullName"
+                          class="form-control"
+                          id="exampleInputFullName"
+                          placeholder="Roll Number"
+                          value={rollNumber}
+                          onChange = {(e) => setRollNumber(e.target.value)}
+                        //   :v-model="displayName"
+                        //   @input="displayName = $event.target.value"
+                        //   :disabled="getFullName"
+                        />
+                        {/* {{ fullName }} */}
+                      </div>
+                      <div class="form-group mt-4">
+                        <label for="exampleInputEmail">Password</label>
+                        <input
+                          type="password"
+                          class="form-control"
+                          id="exampleInputEmail"
+                          value={password}
+                          onChange={(e)=> setPassword(e.target.value)}
+                          // value={}
+                          // :v-model="email"
+                        />
+                      </div>
+                      <button
+                        type="submit"
+                        // disabled="btnDisabled"
+                        class="btn btn-success mt-4"
+          
+                      >
+                        <span v-else class="sr-only">Submit & Start Game</span>
+                      </button>
+                    </form>
+                  </div>
       <div class="col-12 col-md-6 mt-4">
         <h4 class="mt-3"><b>Rules</b></h4>
         <div class="card py-5 px-2 mb-3 mt-4">
@@ -107,7 +117,9 @@ const Home = () => {
       </div>
     </div>
   </div>
+  
         </div>
+         
      );
 }
  

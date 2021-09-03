@@ -1,17 +1,10 @@
-.header{
-    background: orange;
-}
-.game-name{
-    padding:none;
-    margin:0;
-    color:white;
-}
-.red{
-    align-self: flex-end;
-    border:0;
-    width:min-content;
-    width:5vh;
-    height:max-content;
-    background-color: red;
+a {
     color: white;
-}
+    text-decoration: none;
+  }
+  a:active {
+    color: black;
+  }
+  a:focus {
+    color: black;
+  }
