@@ -1,6 +1,7 @@
 import './Final.css'
 import minion from '../images/Minion.png'
-const Final = () => {
+import Navbar from '../components/Navbar';
+const Final = ({setLoginUser}) => {
     return ( 
         <div className="final">
             {/* <div class="m-5 loading" v-if="isLoading">
@@ -14,8 +15,7 @@ const Final = () => {
                     <p>Loading...</p>
                 </div>
                 </div> */}
-                
-                    
+                        
             <div class="container" v-else>
                 <div class="content">
                     <div className="image">

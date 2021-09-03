@@ -1,9 +1,9 @@
 import Navbar from "../components/Navbar"
 
-const Game = () => {
+const Game = ({setLoginUser}) => {
     return ( 
         <div className="game">
-            <Navbar/>
+            <Navbar setLoginUser={setLoginUser}/>
             <div class="container">
     {/* <div class="m-5 loading" v-if="isLoading">
       <div class="mx-auto" style={{width: "50%"; textAlign: "center"}}>
@@ -17,7 +17,7 @@ const Game = () => {
       </div>
     </div> */}
     <div class="row" v-else>
-      <div class="col col-lg-6 mx-auto m-5">
+      <div class="col col-lg-10 mx-auto m-5">
         <div class="card p-3">
           <h3 class="pb-3">
             <b

@@ -11,15 +11,17 @@ const Home = ({setLoginUser}) => {
     const handleSubmit = async (e)=>{
       e.preventDefault();
       const data = {rollNumber, password};
-      await axios.post(`/users/${rollNumber}`, data)
+      await axios.post(`http://localhost:5000/users/${rollNumber}`, data)
       .then(res => {
         alert(res.data.message);
         setLoginUser(res.data.user);
+        console.log(res);
+        history.push("/game");
       })
     }
     return ( 
         <div className="col-24">
-            <Navbar/>
+            <Navbar setLoginUser={setLoginUser}/>
             <div class="container" v-else>
               <div class="row">
                 <div class="col-12 col-md-6 mt-4">
@@ -46,6 +48,7 @@ const Home = ({setLoginUser}) => {
                         <input
                           type="password"
                           class="form-control"
+                          placeholder="Password"
                           id="exampleInputEmail"
                           value={password}
                           onChange={(e)=> setPassword(e.target.value)}
