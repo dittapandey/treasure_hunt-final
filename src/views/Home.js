@@ -27,7 +27,7 @@ const Home = ({setLoginUser}) => {
                     <form class="mt-4" onSubmit = {handleSubmit}>     
                       {/* @submit.prevent="startGame" */}
                       <div class="form-group">
-                        <label for="exampleInputFullName">Full Name</label>
+                        <label for="exampleInputFullName">Roll Number</label>
                         <input
                           type="fullName"
                           class="form-control"
