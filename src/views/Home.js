@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useHistory } from "react-router";
 import axios from "axios";
 import Navbar from "../components/Navbar"
 import './Home.css';
+import AppContext from "../AppContext";
+import Navbar1 from "../components/Navbar1";
 
 const Home = ({setLoginUser}) => {
+    const myContext = useContext(AppContext);
     const [rollNumber, setRollNumber] = useState("");
     const [password, setPassword] = useState("");
     const history = useHistory();
@@ -14,14 +17,14 @@ const Home = ({setLoginUser}) => {
       await axios.post(`http://localhost:5000/users/${rollNumber}`, data)
       .then(res => {
         alert(res.data.message);
-        setLoginUser(res.data.user);
-        console.log(res);
-        history.push("/game");
+        myContext.setLoginUser(res.data.user);
+        console.log(myContext.user);
+        history.push("/game1");
       })
     }
     return ( 
         <div className="col-24">
-            <Navbar setLoginUser={setLoginUser}/>
+            <Navbar1 />
             <div class="container" v-else>
               <div class="row">
                 <div class="col-12 col-md-6 mt-4">

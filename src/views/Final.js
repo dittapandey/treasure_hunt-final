@@ -1,7 +1,7 @@
 import './Final.css'
 import minion from '../images/Minion.png'
 import Navbar from '../components/Navbar';
-const Final = ({setLoginUser}) => {
+const Final = () => {
     return ( 
         <div className="final">
             {/* <div class="m-5 loading" v-if="isLoading">
