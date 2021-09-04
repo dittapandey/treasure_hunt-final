@@ -3,8 +3,8 @@ import { useHistory } from "react-router";
 import Navbar from "../components/Navbar";
 
 const Game_4 = () => {
-  const question = "What is your name?";
-  const answer = "Aditya Pandey";
+  const question = "Assemble the letters below to reach your destination: \n Aha Bar Mr Put";
+  const answer = "Brahmaputra";
   const [givenAnswer, setGivenAnswer] = useState("nothing");
   const [isAnsCor, setIsAnsCor] = useState(false);
   const history = useHistory();
@@ -13,7 +13,7 @@ const Game_4 = () => {
     if(givenAnswer.toUpperCase() === answer.toUpperCase()){
       setIsAnsCor(true);
       alert("You answered the question correctly. Onto the next question minion");
-      history.push("/final");
+      history.push("/game5");
     } else {
       alert("The answer was incorrect. My minion, try again!");
 
@@ -39,15 +39,9 @@ const Game_4 = () => {
         <div class="card p-3">
           <h3 class="pb-3">
             <b
-              ><i>Level 1</i></b
+              ><i>Level 4</i></b
             >
           </h3>
-          <img
-            src="image"
-            class="mx-auto"
-            style={{width: "100%"}}
-            alt="`{level}`"
-          />
           <div class="card-body">
             <p class="card-text">
               {question}

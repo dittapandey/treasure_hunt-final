@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import Navbar from "../components/Navbar";
+import questionImage from "../images/clue3.jpg";
 
 const Game_3 = () => {
-  const question = "What is your name?";
-  const answer = "Aditya Pandey";
+  const question = "Scan the QR code to find the nightmare of Freshers";
+  const answer = "Mechanical Workshop";
   const [givenAnswer, setGivenAnswer] = useState("nothing");
   const [isAnsCor, setIsAnsCor] = useState(false);
   const history = useHistory();
@@ -39,11 +40,11 @@ const Game_3 = () => {
         <div class="card p-3">
           <h3 class="pb-3">
             <b
-              ><i>Level 1</i></b
+              ><i>Level 3</i></b
             >
           </h3>
           <img
-            src="image"
+            src={questionImage}
             class="mx-auto"
             style={{width: "100%"}}
             alt="`{level}`"

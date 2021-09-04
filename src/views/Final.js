@@ -28,7 +28,7 @@ const Final = () => {
                         And that's all Folks! <br />
                         <br />
 
-                        Thank you for participating in QuaRunTime. Hope you have enjoyed the
+                        Thank you for participating in The treasure Hunt. You are now ordained as a minion. Hope you have enjoyed the
                         event! 🎉
                     </p>
                 </div>

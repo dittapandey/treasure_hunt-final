@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import Navbar from "../components/Navbar";
 
-const Game_1 = () => {
-  const question = "What is your name?";
-  const answer = "Aditya Pandey";
+const Game_5 = () => {
+  const question = "Your location is adjacent to building \n \“Ionad Ríomhaireachta\”";
+  const answer = "Library";
   const [givenAnswer, setGivenAnswer] = useState("nothing");
   const [isAnsCor, setIsAnsCor] = useState(false);
   const history = useHistory();
@@ -13,7 +13,8 @@ const Game_1 = () => {
     if(givenAnswer.toUpperCase() === answer.toUpperCase()){
       setIsAnsCor(true);
       alert("You answered the question correctly. Onto the next question minion");
-      history.push("/game2");
+      history.push("/final");
+      history.block();
     } else {
       alert("The answer was incorrect. My minion, try again!");
 
@@ -39,15 +40,9 @@ const Game_1 = () => {
         <div class="card p-3">
           <h3 class="pb-3">
             <b
-              ><i>Level 1</i></b
+              ><i>Level 5</i></b
             >
           </h3>
-          <img
-            src="image"
-            class="mx-auto"
-            style={{width: "100%"}}
-            alt="`{level}`"
-          />
           <div class="card-body">
             <p class="card-text">
               {question}
@@ -94,4 +89,4 @@ const Game_1 = () => {
     );
 }
 
-export default Game_1;
+export default Game_5;

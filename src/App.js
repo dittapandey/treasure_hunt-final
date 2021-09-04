@@ -14,6 +14,7 @@ import Game_1 from "./views/Game_1";
 import Game_2 from "./views/Game_2";
 import Game_3 from "./views/Game_3";
 import Game_4 from "./views/Game_4";
+import Game_5 from "./views/Game_5";
 
 function App() {
   const [user, setLoginUser] = useState();
@@ -31,6 +32,7 @@ function App() {
          {user? <Game_1/>:  <Home/>}
         </Route>
         <Route exact path = "/game1" >
+          {console.log(user)}
           {user? <Game_1/>: <Home/>}
         </Route>
         <Route exact path = "/game2" >
@@ -41,6 +43,9 @@ function App() {
         </Route>
         <Route exact path = "/game4" >
           {user? <Game_4/>: <Home/>}
+        </Route>
+        <Route exact path = "/game5" >
+          {user? <Game_5/>: <Home/>}
         </Route>
         <Route exact path = "/final" >
           {<Final/>}
